@@ -6,11 +6,12 @@ const speedEl = document.getElementById("speed") as HTMLInputElement;
 const text = "We Love Programming!";
 
 let index = 1;
-let speed = 300 / Number(speedEl?.value);
+
+let speed = 300 / Number(speedEl.value);
 
 writeText();
 
-function writeText() {
+function writeText(): void {
   textEl.innerText = text.slice(0, index);
   index++;
 
@@ -21,7 +22,7 @@ function writeText() {
   setTimeout(writeText, speed);
 }
 
-speedEl.addEventListener("input", (e) => {
+speedEl.addEventListener("input", (e: Event) => {
   const target = e.target as HTMLInputElement;
-  speed = 300 / Number(target);
+  speed = 300 / Number(target.value);
 });
